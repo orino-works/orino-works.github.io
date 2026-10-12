@@ -1,0 +1,24 @@
+baseURL = 'https://orino-works.github.io/'
+locale = 'ja-JP'
+defaultContentLanguage = 'ja'
+title = 'しごとのIT手帖'
+timeZone = 'Asia/Tokyo'
+enableRobotsTXT = true
+disableKinds = ['taxonomy', 'term', 'RSS']
+
+[params]
+description = '会社員のためのIT・生成AI活用ガイド。営業や企画の仕事で使える具体例と、導入前に確認したい判断基準をまとめます。'
+operator = 'orino-works 編集部'
+contactURL = ''
+contactEmail = ''
+
+[markup.goldmark.renderer]
+unsafe = false
+
+[markup.tableOfContents]
+startLevel = 2
+endLevel = 2
+
+[sitemap]
+changeFreq = ''
+filename = 'sitemap.xml'
