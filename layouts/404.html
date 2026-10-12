@@ -1,0 +1,7 @@
+{{ define "main" }}
+<section class="reading page-header">
+  <p class="eyebrow">404</p><h1>ページが見つかりませんでした</h1>
+  <p>URLが変わったか、ページが存在しない可能性があります。</p>
+  <p><a href="{{ .Site.Home.RelPermalink }}">トップページへ</a> · <a href="{{ (.Site.GetPage "articles").RelPermalink }}">記事一覧へ</a></p>
+</section>
+{{ end }}

@@ -1,0 +1,25 @@
+{{ define "main" }}
+<section class="intro" aria-labelledby="home-title">
+  <p class="eyebrow">会社員のための、仕事と道具の読みもの</p>
+  <h1 id="home-title">仕事に使う前に、<br>使いどころを考える。</h1>
+  <p class="lead">ITや生成AIは、どんな仕事に役立ち、どこを人が確かめるべきか。営業・企画・管理の仕事に携わる方へ、具体例と判断の手がかりを届けます。</p>
+</section>
+<section class="article-section" aria-labelledby="articles-title">
+  <div class="section-heading"><h2 id="articles-title">まず読みたい記事</h2><span>IT・生成AIの活用</span></div>
+  <div class="article-list">
+    {{ range where .Site.RegularPages "Section" "articles" }}
+    <article class="article-row">
+      <p class="article-meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time> ・ {{ .Params.topic }}</p>
+      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      <p>{{ .Description }}</p>
+      <a class="read-link" href="{{ .RelPermalink }}">記事を読む <span aria-hidden="true">→</span><span class="sr-only">：{{ .Title }}</span></a>
+    </article>
+    {{ end }}
+  </div>
+</section>
+<aside class="editorial-note" aria-label="編集方針">
+  <h2>具体例と、確かめる視点を。</h2>
+  <p>公式資料を優先し、使い方だけでなく注意点も伝えます。未確認の効果や体験談は掲載しません。</p>
+  <a href="{{ (.Site.GetPage "about").RelPermalink }}#編集方針">編集方針を読む</a>
+</aside>
+{{ end }}

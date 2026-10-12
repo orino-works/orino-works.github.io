@@ -1,0 +1,7 @@
+{{ if .Site.Params.contactEmail }}
+<p>お問い合わせは、<a href="mailto:{{ .Site.Params.contactEmail }}">{{ .Site.Params.contactEmail }}</a>までお寄せください。</p>
+{{ else if .Site.Params.contactURL }}
+<p><a href="{{ .Site.Params.contactURL }}" rel="noopener noreferrer">お問い合わせ窓口を開く</a></p>
+{{ else }}
+<p>お問い合わせ窓口は現在準備中です。受け付けを開始した際は、このページでお知らせします。</p>
+{{ end }}

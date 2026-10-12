@@ -1,0 +1,18 @@
+{{ define "main" }}
+<article class="reading">
+  <nav class="breadcrumb" aria-label="パンくずリスト"><a href="{{ .Site.Home.RelPermalink }}">ホーム</a>{{ if eq .Section "articles" }} / <a href="{{ (.Site.GetPage "articles").RelPermalink }}">記事</a>{{ end }} / <span aria-current="page">{{ .Title }}</span></nav>
+  <header class="page-header">
+    {{ if eq .Section "articles" }}<p class="eyebrow">{{ .Params.topic }}</p>{{ end }}
+    <h1>{{ .Title }}</h1>
+    <p class="lead">{{ .Description }}</p>
+    <p class="article-meta">{{ if eq .Section "articles" }}{{ .Site.Params.operator }} ・ {{ end }}確認・更新：<time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "2006年1月2日" }}</time></p>
+  </header>
+  {{ if eq .Section "articles" }}<details class="toc" open><summary>この記事の内容</summary>{{ .TableOfContents }}</details>{{ end }}
+  <div class="prose">{{ .Content }}</div>
+  {{ if eq .Section "articles" }}
+  <aside class="related"><h2>あわせて読みたい</h2><ul>
+    {{ range where .Site.RegularPages "Section" "articles" }}{{ if ne .RelPermalink $.RelPermalink }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{ end }}{{ end }}
+  </ul></aside>
+  {{ end }}
+</article>
+{{ end }}
